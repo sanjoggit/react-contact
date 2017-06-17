@@ -13,7 +13,8 @@ class Contacts extends React.Component{
         this.updateContact = this.updateContact.bind(this);
         this.addContact = this.addContact.bind(this);
         this.deleteContact = this.deleteContact.bind(this);
-        this.updateEditContact = this.updateEditContact.bind(this); // for edited contact
+        this.updateEditContact = this.updateEditContact.bind(this);
+        this.sortByName = this.sortByName.bind(this);
         this.state = {
             users: [],
             currentContact:{
@@ -24,6 +25,8 @@ class Contacts extends React.Component{
         }
 
     }
+
+
 
     componentDidMount() {
         $.get({
@@ -73,6 +76,20 @@ class Contacts extends React.Component{
         })
     }
 
+    sortByName(){
+        const byName = this.state.users.slice(0);
+        byName.sort(function(a, b){
+            const x = a.name.toLowerCase();
+            const y = b.name.toLowerCase();
+            return (x<y? -1 : x>y ? 1 : 0)
+            this.setState({
+                byName
+            })
+
+        });
+        console.log(byName);
+    }
+
 
     render(){
         const users = this.state.users
@@ -95,7 +112,7 @@ class Contacts extends React.Component{
                         <table>
                             <tbody>
                             <tr>
-                                <th>Name <i className="fa fa-arrow-down" aria-hidden="true"></i></th>
+                                <th onClick={()=>{this.sortByName()}}>Name <i className="fa fa-arrow-down" aria-hidden="true"></i></th>
                                 <th className="email">E-mail address</th>
                                 <th>Phone number</th>
                                 <th></th>
