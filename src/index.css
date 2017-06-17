@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#container{
+  margin: 0 auto;
+  width: 976px;
+  align-items: center;
+}
+.header{
+  height: 96px;
+  width: 976px;
+  background-color: #757575;
+}
+.header img{
+  height: 32px;
+  width: 32px;
+  padding: 32px 0 32px 32px;
+}
+.header h2{
+  margin-left: 85px;
+  margin-top: -66px;
+  color: white;
+}
+.content{
+  margin-top: -40px;
+  background-color: #f5f5f0;
+
+}
+.content h2 {
+  padding-top: 80px;
+  margin-left: 32px;
+  color: #757575;
+    margin-top: 40px;
+}
+ table{
+   margin-left: 32px;
+   background-color: #fff;
+   width: 912px;
+ }
+ .table-body{
+   padding-bottom: 100px;
+ }
+ table th{
+   color: #757575;
+   font-size: 14px;
+   font-weight: 500;
+   text-align: left;
+   padding-left: 26px;
+   height: 48px;
+   border-bottom: 1px solid #f5f5f0;
+     width: 200px;
+ }
+ table .email{
+     width: 350px;
+ }
+
+ table tr{
+   height: 72px;
+ }
+ table td{
+  text-align: left;
+  padding-left: 26px;
+  color: #505050;
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid #f5f5f0;
+     width: 200px;
+ }
+
+.fa-pencil{
+    font-size: 24px;
+    color: #909090;
+    margin-left: 60px;
+    cursor: pointer;
+ }
+.fa-trash{
+    font-size: 24px;
+    color: #909090;
+    float: right;
+    padding-right: 30px;
+    cursor: pointer;
+
+}
+form{
+    width: 912px;
+    margin-left: 32px;
+    background-color: #fff;
+    padding: 16px 0 16px 0;
+    margin-bottom: 10px;
+}
+
+input{
+    height: 40px;
+    background-color: #f5f5f0;
+    border: 1px solid #F2F2F2;
+    margin-left: 16px;
+}
+
+
+input[type='text']{
+    padding-left: 16px;
+}
+input[type='number']{
+    padding-left: 16px;
+    width: 175px;
+}
+input[type='email']{
+    padding-left: 16px;
+    width: 270px;
+}
+form button{
+    float: right;
+    height: 40px;
+    margin-right: 16px;
+    padding: 0 20px 0 20px;
+    background-color: #f5f5f0;
+    border: 1px solid #F2F2F2;
+}
+
+button {
+    color: #909090;
+    font-weight: bold;
+    cursor: pointer;
+}
+.save{
+    background-color: #07f;
+    color: #fff;
+}
+.cancel{
+    color: #07f;
+}
