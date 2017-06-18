@@ -23,9 +23,9 @@ class ContactForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         if(!this.showFormErrors()){
-
+            return false
         } else {
-            return e => this.props.addContact(e)
+            this.props.addContact(e)
         }
     }
     showFormErrors(){

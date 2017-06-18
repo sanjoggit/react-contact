@@ -6,7 +6,6 @@ import logo from './images/nord.png'
 import ContactDetail from './components/ContactDetail';
 import ContactForm from './components/ContactForm';
 
-
 class Contacts extends React.Component{
     constructor(){
         super();
@@ -77,17 +76,18 @@ class Contacts extends React.Component{
     }
 
     sortByName(){
-        const byName = this.state.users.slice(0);
+        let byName = this.state.users;
+
         byName.sort(function(a, b){
             const x = a.name.toLowerCase();
             const y = b.name.toLowerCase();
-            return (x<y? -1 : x>y ? 1 : 0)
-            this.setState({
-                byName
-            })
-
+            return (x < y ? -1 : x > y ? 1 : 0)
         });
-        console.log(byName);
+
+
+        this.setState({
+            users: byName
+        })
     }
 
 
@@ -112,7 +112,7 @@ class Contacts extends React.Component{
                         <table>
                             <tbody>
                             <tr>
-                                <th onClick={()=>{this.sortByName()}}>Name <i className="fa fa-arrow-down" aria-hidden="true"></i></th>
+                                <th onClick={this.sortByName}>Name <i className="fa fa-arrow-down" aria-hidden="true"></i></th>
                                 <th className="email">E-mail address</th>
                                 <th>Phone number</th>
                                 <th></th>
