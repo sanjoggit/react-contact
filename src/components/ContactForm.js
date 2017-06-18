@@ -8,8 +8,9 @@ class ContactForm extends React.Component{
         this.state = {
             name: '',
             email: '',
-            phone:''
-        }
+            phone:'',
+            message: ''
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -20,12 +21,15 @@ class ContactForm extends React.Component{
         });
         this.showInputError(e.target.name);
     }
+
     handleSubmit(e){
         e.preventDefault();
         if(!this.showFormErrors()){
             return false
         } else {
-            this.props.addContact(e)
+            this.props.addContact(e);
+            this.setState({message: 'contact added'});
+            setTimeout(()=>{ this.setState({message: ''}) }, 3000);
         }
     }
     showFormErrors(){
@@ -62,6 +66,8 @@ class ContactForm extends React.Component{
 
     render() {
         return (
+            <section>
+            <span className="successMessage">{ this.state.message }</span>
             <form  onSubmit={this.handleSubmit} noValidate>
                 <input type="text" name="name" ref="name" id="nameLabel" required placeholder="Full name" value={this.props.currentContact.name}
                        onChange={e => this.props.updateContact(e)}/><div className="error" id="nameError" />
@@ -71,6 +77,7 @@ class ContactForm extends React.Component{
                        onChange={e => this.props.updateContact(e)}/><div className="error" id="phoneError"/>
                 <button type="submit">Add New</button>
             </form>
+            </section>
         )
     }
 }
@@ -79,26 +86,6 @@ export default ContactForm;
 
 
 
-/*import React from 'react';
-
-
- class ContactForm extends React.Component{
- render() {
- return (
- <form onSubmit={e => this.props.addContact(e)}>
- <input type="text" name="name" placeholder="Full name" value={this.props.currentContact.name}
- onChange={e => this.props.updateContact(e)}/>
- <input type="email" name="email" placeholder="E-mail address" value={this.props.currentContact.email}
- onChange={e => this.props.updateContact(e)}/>
- <input type="number" name="phone" placeholder="Phone number" value={this.props.currentContact.phone}
- onChange={e => this.props.updateContact(e)}/>
- <button type="submit">Add New</button>
- </form>
- )
- }
- }
-
- export default ContactForm;*/
 
 
 

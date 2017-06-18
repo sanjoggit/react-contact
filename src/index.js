@@ -9,11 +9,13 @@ import ContactForm from './components/ContactForm';
 class Contacts extends React.Component{
     constructor(){
         super();
+
         this.updateContact = this.updateContact.bind(this);
         this.addContact = this.addContact.bind(this);
         this.deleteContact = this.deleteContact.bind(this);
         this.updateEditContact = this.updateEditContact.bind(this);
         this.sortByName = this.sortByName.bind(this);
+
         this.state = {
             users: [],
             currentContact:{
@@ -21,6 +23,7 @@ class Contacts extends React.Component{
                 email: '',
                 phone: '',
             }
+
         }
 
     }
@@ -50,7 +53,9 @@ class Contacts extends React.Component{
             name: currentContact.name,
             email: currentContact.email,
             phone: currentContact.phone,
-        })
+        });
+
+
         this.setState({
             contacts: contacts,
             currentContact: {name: '', email:'', phone:''}
@@ -89,6 +94,8 @@ class Contacts extends React.Component{
             users: byName
         })
     }
+
+
 
 
     render(){

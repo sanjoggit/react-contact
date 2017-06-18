@@ -147,3 +147,11 @@ input.active:invalid {
     font-size: 12px;
     display: none;
 }
+
+.successMessage{
+    color: green;
+    margin-left: 32px;
+}
+.add{
+    background-color: red;
+}

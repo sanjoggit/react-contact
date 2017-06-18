@@ -28,6 +28,11 @@ class ContactDetail extends React.Component{
         this.props.updateEditContact(this.props.index, name, email, phone);
         this.toggleState();
     }
+    cancelEdit(){
+        this.setState({
+            isEditing: false
+        });
+    }
     renderForm(){
         return(
             <form onSubmit={this.updateEditedContact}>
@@ -35,7 +40,7 @@ class ContactDetail extends React.Component{
                 <input type="email" name="email" ref="email" defaultValue={this.props.detail.email}/>
                 <input type="phone" name="phone" ref="phone" defaultValue={this.props.detail.phone}/>
                 <button type="submit" className="save">Save</button>
-                <button type="submit" className="cancel">Cancel</button>
+                <button type="button" className="cancel" onClick={this.cancelEdit.bind(this)}>Cancel</button>
             </form>
         )
     }
