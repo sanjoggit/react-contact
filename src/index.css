@@ -133,3 +133,17 @@ button {
 .cancel{
     color: #07f;
 }
+
+/*FOR VALIDATION*/
+input.active:valid {
+    box-shadow: 0 0 5px 1px green;
+}
+input.active:invalid {
+    box-shadow: 0 0 5px 1px red;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
