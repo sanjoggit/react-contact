@@ -22,7 +22,7 @@ class Contacts extends React.Component{
                 name: '',
                 email: '',
                 phone: '',
-            }
+            },
 
         }
 
@@ -50,6 +50,7 @@ class Contacts extends React.Component{
         let contacts = this.state.contacts;
         let currentContact = this.state.currentContact;
         this.state.users.unshift({
+            id: this.state.users.length+1,
             name: currentContact.name,
             email: currentContact.email,
             phone: currentContact.phone,
@@ -59,6 +60,7 @@ class Contacts extends React.Component{
         this.setState({
             contacts: contacts,
             currentContact: {name: '', email:'', phone:''}
+
         })
     }
 
@@ -86,13 +88,14 @@ class Contacts extends React.Component{
         byName.sort(function(a, b){
             const x = a.name.toLowerCase();
             const y = b.name.toLowerCase();
-            return (x < y ? -1 : x > y ? 1 : 0)
+            return (x < y ? -1 : x > y ? 1 : 0);
+
         });
-
-
         this.setState({
             users: byName
-        })
+        });
+
+        console.log(byName);
     }
 
 

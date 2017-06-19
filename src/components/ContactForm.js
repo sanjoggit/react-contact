@@ -30,6 +30,7 @@ class ContactForm extends React.Component{
             this.props.addContact(e);
             this.setState({message: 'contact added'});
             setTimeout(()=>{ this.setState({message: ''}) }, 3000);
+
         }
     }
     showFormErrors(){
@@ -44,11 +45,13 @@ class ContactForm extends React.Component{
             }
         });
         return isFormValid;
+
     }
     showInputError(refName){
         const validity = this.refs[refName].validity;
         const label = document.getElementById(`${refName}Label`).textContent;
         const error = document.getElementById(`${refName}Error`);
+
 
         if(!validity.valid){
             if(validity.valueMissing){
@@ -75,7 +78,7 @@ class ContactForm extends React.Component{
                        onChange={e => this.props.updateContact(e)}/><div className="error" id="emailError"/>
                 <input type="number" name="phone" placeholder="Phone number" ref="phone" id="phoneLabel" required value={this.props.currentContact.phone}
                        onChange={e => this.props.updateContact(e)}/><div className="error" id="phoneError"/>
-                <button type="submit">Add New</button>
+                <button id="add" type="submit">Add New</button>
             </form>
             </section>
         )
