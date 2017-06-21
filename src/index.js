@@ -5,6 +5,7 @@ import './index.css';
 import logo from './images/nord.png'
 import ContactDetail from './components/ContactDetail';
 import ContactForm from './components/ContactForm';
+//sortBy = require('lodash').sortBy;
 
 class Contacts extends React.Component{
     constructor(){
@@ -14,7 +15,7 @@ class Contacts extends React.Component{
         this.addContact = this.addContact.bind(this);
         this.deleteContact = this.deleteContact.bind(this);
         this.updateEditContact = this.updateEditContact.bind(this);
-        this.sortByName = this.sortByName.bind(this);
+        //this.sortByName = this.sortByName.bind(this);
 
         this.state = {
             users: [],
@@ -23,7 +24,7 @@ class Contacts extends React.Component{
                 email: '',
                 phone: '',
             },
-
+            order: false
         }
 
     }
@@ -36,6 +37,16 @@ class Contacts extends React.Component{
         }).done(function(data) {
             this.setState({users: data.contacts})
         }.bind(this))
+
+        //for sorting code below
+
+        $('.sortable').click(function(){
+            const sort = $(this).hasClass('asc') ? 'desc' : 'asc';
+            $('.sortable').removeClass('asc').removeClass('desc');
+            $(this).addClass(sort);
+
+        });
+
     }
 
     deleteContact(index){
@@ -82,21 +93,22 @@ class Contacts extends React.Component{
         })
     }
 
-    sortByName(){
-        let byName = this.state.users;
+/*   sortByName(){
+            let byNameAsc = this.state.users;
 
-        byName.sort(function(a, b){
-            const x = a.name.toLowerCase();
-            const y = b.name.toLowerCase();
-            return (x < y ? -1 : x > y ? 1 : 0);
+            byNameAsc.sort(function (a, b) {
 
-        });
-        this.setState({
-            users: byName
-        });
+                const x = a.name.toLowerCase();
+                const y = b.name.toLowerCase();
+                return (x < y ? -1 : x > y ? 1 : 0);
 
-        console.log(byName);
-    }
+            });
+            this.setState({
+                users: byNameAsc
+            });
+            console.log(byNameAsc.reverse());
+
+    }*/
 
 
 
@@ -120,14 +132,14 @@ class Contacts extends React.Component{
                             />
                         </section>
                         <table>
-                            <tbody>
+                            <thead>
                             <tr>
-                                <th onClick={this.sortByName}>Name <i className="fa fa-arrow-down" aria-hidden="true"></i></th>
-                                <th className="email">E-mail address</th>
-                                <th>Phone number</th>
+                                <th className="sortable asc" onClick={this.sortByName}>Name</th>
+                                <th className=" email sortable">E-mail address</th>
+                                <th className="sortable">Phone number</th>
                                 <th></th>
                             </tr>
-                            </tbody>
+                            </thead>
                         </table>
                         {
                             Object.keys(users).map(key => (

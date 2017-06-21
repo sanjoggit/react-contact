@@ -108,6 +108,11 @@ input[type='number']{
     padding-left: 16px;
     width: 175px;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 input[type='email']{
     padding-left: 16px;
     width: 270px;
@@ -152,6 +157,13 @@ input.active:invalid {
     color: green;
     margin-left: 32px;
 }
-.add{
-    background-color: red;
+
+/*for sorting*/
+table th.asc:after{
+    content: ' \2193';
+    color:green;
+}
+table th.desc:after{
+    content: ' \2191';
+    color:green;
 }

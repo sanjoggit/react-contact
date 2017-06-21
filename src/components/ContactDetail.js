@@ -38,7 +38,7 @@ class ContactDetail extends React.Component{
             <form onSubmit={this.updateEditedContact}>
                 <input type="text" name="name" ref="name" defaultValue={this.props.detail.name}/>
                 <input type="email" name="email" ref="email" defaultValue={this.props.detail.email}/>
-                <input type="phone" name="phone" ref="phone" defaultValue={this.props.detail.phone}/>
+                <input type="number" name="phone" ref="phone" defaultValue={this.props.detail.phone}/>
                 <button type="submit" className="save">Save</button>
                 <button type="button" className="cancel" onClick={this.cancelEdit.bind(this)}>Cancel</button>
             </form>
