@@ -15,7 +15,9 @@ class Contacts extends React.Component{
         this.addContact = this.addContact.bind(this);
         this.deleteContact = this.deleteContact.bind(this);
         this.updateEditContact = this.updateEditContact.bind(this);
-        //this.sortByName = this.sortByName.bind(this);
+        this.sortByName = this.sortByName.bind(this);
+        this.sortByEmail = this.sortByEmail.bind(this);
+        this.sortByNumber = this.sortByNumber.bind(this);
 
         this.state = {
             users: [],
@@ -33,8 +35,8 @@ class Contacts extends React.Component{
 
     componentDidMount() {
         $.get({
-            //url: 'http://localhost:3000/users.json',
-            url: 'https://mysterious-dawn-49360.herokuapp.com/users.json',
+            url: 'http://localhost:3000/users.json',
+            //url: 'https://mysterious-dawn-49360.herokuapp.com/users.json',
         }).done(function(data) {
             this.setState({users: data.contacts})
         }.bind(this))
@@ -110,6 +112,69 @@ class Contacts extends React.Component{
             console.log(byNameAsc.reverse());
 
     }*/
+    sortByName(){
+        const userOrder = !this.state.order
+        this.setState({ order: userOrder })
+        let contacts = this.state.users
+
+        contacts.sort(function (a, b) {
+            const x = a.name.toLowerCase();
+            const y = b.name.toLowerCase();
+            if(userOrder) {
+                if(x < y) return -1
+                if(x > y) return 1
+                return 0
+            } else {
+                if(x < y) return 1
+                if(x > y) return -1
+                return 0
+            }
+
+        });
+
+        this.setState({ users: contacts})
+    }
+    sortByEmail(){
+        const userOrder = !this.state.order
+        this.setState({ order: userOrder })
+        let contacts = this.state.users
+
+        contacts.sort(function (a, b) {
+            const x = a.email.toLowerCase();
+            const y = b.email.toLowerCase();
+            if(userOrder) {
+                if(x < y) return -1
+                if(x > y) return 1
+                return 0
+            } else {
+                if(x < y) return 1
+                if(x > y) return -1
+                return 0
+            }
+
+        });
+
+        this.setState({ users: contacts})
+    }
+    sortByNumber(){
+
+        const userOrder = !this.state.order
+        this.setState({ order: userOrder })
+        let contacts = this.state.users
+
+        contacts.sort(function (a, b) {
+            const x = a.phone;
+            const y = b.phone;
+            if(userOrder) {
+                return x-y
+            } else {
+                return y-x
+            }
+
+        });
+
+        this.setState({ users: contacts})
+    }
 
 
 
@@ -136,8 +201,8 @@ class Contacts extends React.Component{
                             <thead>
                             <tr>
                                 <th className="sortable asc" onClick={this.sortByName}>Name</th>
-                                <th className=" email sortable">E-mail address</th>
-                                <th className="sortable">Phone number</th>
+                                <th className=" email sortable" onClick={this.sortByEmail}>E-mail address</th>
+                                <th className="sortable" onClick={this.sortByNumber}>Phone number</th>
                                 <th></th>
                             </tr>
                             </thead>
