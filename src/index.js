@@ -38,7 +38,7 @@ class Contacts extends React.Component{
             this.setState({users: data.contacts})
         }.bind(this))
 
-        //for sorting code below
+        //for sorting arrow code below
 
         $('.sortable').click(function(){
             const sort = $(this).hasClass('asc') ? 'desc' : 'asc';
@@ -165,4 +165,3 @@ class Contacts extends React.Component{
 
 
 ReactDOM.render(<Contacts/>, document.getElementById('root'));
-
