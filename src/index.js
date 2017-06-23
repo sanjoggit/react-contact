@@ -32,8 +32,8 @@ class Contacts extends React.Component{
 
     componentDidMount() {
         $.get({
-            url: 'http://localhost:3000/users.json',
-            //url: 'https://mysterious-dawn-49360.herokuapp.com/users.json',
+            //url: 'http://localhost:3000/users.json',
+            url: 'https://mysterious-dawn-49360.herokuapp.com/users.json',
         }).done(function(data) {
             this.setState({users: data.contacts})
         }.bind(this))
