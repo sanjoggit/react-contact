@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery'
+import $ from 'jquery';
 import './index.css';
 import logo from './images/nord.png'
 import ContactDetail from './components/ContactDetail';
 import ContactForm from './components/ContactForm';
-//sortBy = require('lodash').sortBy;
 
 class Contacts extends React.Component{
     constructor(){
@@ -30,8 +29,6 @@ class Contacts extends React.Component{
         }
 
     }
-
-
 
     componentDidMount() {
         $.get({
@@ -70,11 +67,9 @@ class Contacts extends React.Component{
             phone: currentContact.phone,
         });
 
-
         this.setState({
             contacts: contacts,
             currentContact: {name: '', email:'', phone:''}
-
         })
     }
 
@@ -96,22 +91,6 @@ class Contacts extends React.Component{
         })
     }
 
-/*   sortByName(){
-            let byNameAsc = this.state.users;
-
-            byNameAsc.sort(function (a, b) {
-
-                const x = a.name.toLowerCase();
-                const y = b.name.toLowerCase();
-                return (x < y ? -1 : x > y ? 1 : 0);
-
-            });
-            this.setState({
-                users: byNameAsc
-            });
-            console.log(byNameAsc.reverse());
-
-    }*/
     sortByName(){
         const userOrder = !this.state.order
         this.setState({ order: userOrder })
@@ -129,7 +108,6 @@ class Contacts extends React.Component{
                 if(x > y) return -1
                 return 0
             }
-
         });
 
         this.setState({ users: contacts})
@@ -151,13 +129,11 @@ class Contacts extends React.Component{
                 if(x > y) return -1
                 return 0
             }
-
         });
 
         this.setState({ users: contacts})
     }
     sortByNumber(){
-
         const userOrder = !this.state.order
         this.setState({ order: userOrder })
         let contacts = this.state.users
@@ -172,11 +148,8 @@ class Contacts extends React.Component{
             }
 
         });
-
         this.setState({ users: contacts})
     }
-
-
 
 
     render(){

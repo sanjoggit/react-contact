@@ -12,12 +12,13 @@ body {
 .header{
   height: 96px;
   width: 976px;
-  background-color: #757575;
+  background-color: #AAB7B8;
 }
 .header img{
   height: 32px;
   width: 32px;
   padding: 32px 0 32px 32px;
+    color: #AAB7B8  ;
 }
 .header h2{
   margin-left: 85px;
@@ -47,6 +48,7 @@ body {
    color: #757575;
    font-size: 14px;
    font-weight: 500;
+     font-weight: bold;
    text-align: left;
    padding-left: 26px;
    height: 48px;
@@ -96,7 +98,7 @@ form{
 input{
     height: 40px;
     background-color: #f5f5f0;
-    border: 1px solid #F2F2F2;
+    border: 1px solid #E5E7E9;
     margin-left: 16px;
 }
 
@@ -104,7 +106,7 @@ input{
 input[type='text']{
     padding-left: 16px;
 }
-input[type='number']{
+input[type='tel']{
     padding-left: 16px;
     width: 175px;
 }
@@ -119,24 +121,30 @@ input[type='email']{
 }
 form button{
     float: right;
-    height: 40px;
     margin-right: 16px;
     padding: 0 20px 0 20px;
     background-color: #f5f5f0;
     border: 1px solid #F2F2F2;
+    height: 44px;
 }
-
+.add{
+    background-color: #07f;
+    color: #fff;
+}
 button {
     color: #909090;
     font-weight: bold;
     cursor: pointer;
+    margin-left: -10px;
 }
 .save{
     background-color: #07f;
     color: #fff;
+    font-size: 14px;
 }
 .cancel{
     color: #07f;
+    font-size: 14px;
 }
 
 /*FOR VALIDATION*/
@@ -150,7 +158,8 @@ input.active:invalid {
 .error {
     color: red;
     font-size: 12px;
-    display: none;
+    display: inline-block;
+    padding-right: 215px ;
 }
 
 .successMessage{
