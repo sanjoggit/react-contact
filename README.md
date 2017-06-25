@@ -1,5 +1,5 @@
 # Contact App [![npm (scoped)](https://img.shields.io/badge/npm-v.4.1.2-brightgreen.svg)]() [![node (scoped)](https://img.shields.io/badge/node-v.7.6.0-blue.svg)]()
-A simple contact managing app where you can add, delete and edit contacts. This project was carried out using Java Script framework React.
+A simple contact managing app where you can add, delete and edit contacts. This project was carried out using Java Script library React.
 
 ## Installation
 This project was done in windows OS with node version 7.6.0
