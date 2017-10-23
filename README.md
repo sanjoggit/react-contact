@@ -1,7 +1,7 @@
 # Contact App [![npm (scoped)](https://img.shields.io/badge/npm-v.4.1.2-brightgreen.svg)]() [![node (scoped)](https://img.shields.io/badge/node-v.7.6.0-blue.svg)]()
 A simple contact managing app where you can add, delete and edit contacts. This project was carried out using Java Script library React.
 
-Here is the demo of this app https://mysterious-dawn-49360.herokuapp.com/
+
 
 
 ## Installation
